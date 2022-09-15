@@ -1,0 +1,53 @@
+{% extends 'adminbase.html.twig' %}
+{% block title %}Contact Messages List Detail{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-12 d-flex no-block align-items-center">
+                    <h4 class="page-title">Contact Page Detail</h4>
+                    <div class="ml-auto text-right">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <table class="table">
+
+                <tr>
+                    <th>Id</th>
+                    <td>{{ rs.id }}</th>
+                </tr>
+                <tr>
+                    <th scope="col">Name</th>
+                    <td>{{ rs.name }}</td>
+                </tr>
+                <tr>
+                    <th scope="col">Email</th>
+                    <td>{{ rs.email }}</td>
+                </tr>
+                <tr>
+                    <th scope="col">Phone</th>
+                    <td>{{ rs.phone }}</td>
+                </tr>
+                <tr>
+                    <th scope="col">Subject</th>
+                    <td>{{ rs.subject }}</td>
+                </tr>
+                <tr>
+                    <th scope="col">Message</th>
+                    <td>{{ rs.message }}</td>
+                </tr>
+                    <th scope="col">Delete</th>
+                <td><a href="{{ path ('app_admin_messages_delete', {'id' : rs.id}) }}" class="btn btn-danger" onclick="return confirm('Emin misin')"> Delete</a></td>
+                </tr>
+
+
+            </table>
+        </div>
+
+    </div>
+
+{% endblock %}

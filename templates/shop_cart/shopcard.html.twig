@@ -1,0 +1,52 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}Shop Card{% endblock %}
+
+{% block sidebar %} {% include ('home/sidebar.html.twig')%}  {% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Product List</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Image</th>
+                                            <th>Title</th>
+                                            <th>Tasdasd</th>
+                                            <th>asdasdasddas</th>
+                                        </tr>
+                                        </thead>
+
+                                        <tbody>
+                                        {% for rs in shop_carts %}
+                                            <tr>
+                                                <td ><img src="{{ asset('uploads/images/'~ rs.product.image) }}"></td>
+                                                <td >{{ rs.product.title }}</td>
+                                                <td >{{ rs.product.price }}</td>
+                                                <td >{{ rs.product.quantity }}</td>
+
+                                            </tr>
+                                            {
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+
+</div>
+
+{% endblock %}
+

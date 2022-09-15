@@ -1,0 +1,62 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Product index{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Setting List</h4>
+
+            </div>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Company</th>
+                <th>Adress</th>
+                <th>Phone</th>
+                <th>Fax</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for setting in settings %}
+            <tr>
+                <td>{{ setting.id }}</td>
+                <td>{{ setting.title }}</td>
+
+                <td>{{ setting.company }}</td>
+                <td>{{ setting.adress }}</td>
+                <td>{{ setting.phone }}</td>
+                <td>{{ setting.fax }}</td>
+                <td>{{ setting.email }}</td>
+
+                <td>{{ setting.status }}</td>
+                <td>
+                    <a href="{{ path('app_admin_setting_edit', {'id': setting.id}) }}"class="btn btn-primary">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="23">    <a href="{{ path('app_admin_setting_new') }}"class="btn btn-success">Create new</a></td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+</div>
+
+
+
+{% endblock %}

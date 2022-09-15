@@ -1,0 +1,60 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %} Register User {% endblock %}
+
+{% block sidebar %} {% include ('home/sidebar.html.twig')%}  {% endblock %}
+
+{% block content %}
+
+    <!-- Header Start -->
+
+    <div class="container-fluid page-header">
+
+        <div class="container">
+            <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+                <h3 class="display-4 text-white text-uppercase">Register</h3>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Header End -->
+    <!-- Contact Start -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="container-fluid py-5">
+                <div class="container py-5">
+
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="contact-form bg-white" style="padding: 40px;">
+                                <div id="success"></div>
+                                                              {% for flash_error in app.flashes('verify_email_error') %}
+                                    <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+                                {% endfor %}
+
+
+                                {{ form_start(registrationForm) }}
+
+                                {{ form_widget(registrationForm) }}
+
+                                <button type="submit" class="btn btn-success" >Register</button>
+
+                                {{ form_end(registrationForm) }}
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Contact End -->
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Product index{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Product List</h4>
+
+            </div>
+        </div>
+    </div>
+
+
+    {{ include('admin/setting/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_admin_setting_index') }}">back to list</a>
+
+
+</div>
+
+
+
+{% endblock %}

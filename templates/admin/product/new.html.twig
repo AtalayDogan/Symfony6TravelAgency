@@ -1,0 +1,30 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}New Product{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">New Product</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{ path('app_admin_category_new') }}">Add</a></li>
+
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{ include('admin/product/_form.html.twig') }}
+
+    <a href="{{ path('app_admin_product_index') }}"class="btn btn-primary">Back to list</a>
+</div>
+
+
+
+{% endblock %}

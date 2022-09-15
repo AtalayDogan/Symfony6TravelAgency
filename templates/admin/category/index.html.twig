@@ -1,0 +1,56 @@
+{% extends 'adminbase.html.twig' %}
+{% block title %}Category List{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-12 d-flex no-block align-items-center">
+                    <h4 class="page-title">Category Page</h4>
+                    <div class="ml-auto text-right">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ path('app_admin_category_new') }}">Add</a></li>
+
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Keywords</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Slug</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for rs in categorylist %}
+                <tr>
+                    <td>{{ rs.id }}</th>
+                    <td>{{ rs.title }}</td>
+                    <td>{{ rs.keywords }}</td>
+                    <td>{{ rs.description }}</td>
+                    <td>{{ rs.slug }}</td>
+                    <td>{{ rs.status }}</td>
+                    <td><a href="{{ path ('app_admin_category_edit', {'id' : rs.id}) }}" class="btn btn-success"> Edit</a></td>
+                    <td><a href="{{ path ('app_admin_category_delete', {'id' : rs.id}) }}" class="btn btn-danger" onclick="return confirm('Emin misin')"> Delete</a></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+<!-- Topbar Start -->
+<div class="container-fluid bg-light pt-3 d-none d-lg-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center">
+                    <p><i class="fa fa-envelope mr-2"></i>doganagency@agency.com</p>
+                    <p class="text-body px-3">|</p>
+                    <p><i class="fa fa-phone-alt mr-2"></i>+090 543 12344</p>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-primary px-3" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-primary px-3" href="">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-primary px-3" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-primary px-3" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <div class="nav-item dropdown" >
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fab fa-"></i>{{ app.user.name }}</a>
+                            {% else  %}
+                            <a href="{{ path ('app_login') }}" class="text-uppercase">login</a> / <a href="{{ path ('app_register') }}" class="text-uppercase">Register</a>
+
+                        {% endif %}
+                        <div class="dropdown-menu border-0 rounded-0 m-0">
+                            <a href="{{ path('app_user_index') }}" class="dropdown-item">My Account  </a>
+                            <a href="{{ path('app_shop_cart_index') }}"class="dropdown-item">My Card  </a>
+                            <a href="#" class="dropdown-item">Compare</a>
+                            <a href="#" class="dropdown-item">Checkout</a>
+                            <a href="#" class="dropdown-item">Login</a>
+                            <a href="#" class="dropdown-item">Create an  Account  </a>
+                            <a href="{{ path('app_logout') }}" class="fa fa-power-off m-r-5 m-l-5">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->

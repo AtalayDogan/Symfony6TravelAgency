@@ -1,0 +1,80 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Product index{% endblock %}
+
+{% block body %}
+    <SCRIPT language="JavaScript" type="text/javascript">
+        function openWin( windowURL, windowName, windowFeatures ) { window.open( windowURL, windowName, windowFeatures ) ; 	}
+    </SCRIPT>
+
+
+    <div class="container-fluid">
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Product List</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{ path('app_admin_product_new') }}"class="btn btn-success">Add</a></li>
+
+
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Category</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>IGallery</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+               <td>{{ product.category.title }}</td>
+                <td>{{ product.title }}</td>
+
+                <td>
+                    <img src="{{ asset('uploads/images/'~ product.image) }}" height="40">
+                </td>
+                <td>
+                    <a href="javascript:openWin('{{ path('app_admin_image_new', {'pid': product.id}) }}','','toolbar=no,location=no,directories=0,status=no,top=50,left=100,menuBar=no,scrollBars=yes,resizable=no,width=900,height=600');">
+                        <img src="{{ asset('assets/admin/img') }}/gallery.png" height="40" title="İmage Gallery">
+                    </a>
+                </td>
+
+                <td>{{ product.price }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>{{ product.status }}</td>
+                <td>
+                    <a href="{{ path('app_admin_product_show', {'id': product.id}) }}"class="btn btn-success">Show</a>
+                    <a href="{{ path('app_admin_product_edit', {'id': product.id}) }}"class="btn btn-success">Edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+</div>
+
+
+
+{% endblock %}

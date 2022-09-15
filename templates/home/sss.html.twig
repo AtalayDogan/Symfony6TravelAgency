@@ -1,0 +1,64 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %} Sıkça Sorulan Sorular | {{ setting.title }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+
+{% block sidebar %} {% include ('home/sidebar.html.twig')%}  {% endblock %}
+
+{% block content %}
+
+    <!-- Header Start -->
+
+<div class="container-fluid page-header">
+
+    <div class="container">
+            <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+                <h3 class="display-4 text-white text-uppercase">Sıkça Sorulan Sorular</h3>
+
+            </div>
+    </div>
+</div>
+
+
+    <!-- Header End -->
+    <!-- Contact Start -->
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="container-fluid py-5">
+            <div class="container py-5">
+                <div class="text-center mb-3 pb-3">
+                    <h1>Sıkça Sorulan Sorular</h1>
+
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="contact-form bg-white" style="padding: 40px;">
+                            <div id="success"></div>
+                            <h1>Soru 1</h1>
+                            Cevap 1
+                            <hr>
+                            <h1>Soru 2</h1>
+                            Cevap 2
+                            <hr>
+                            <h1>Soru 3</h1>
+                            Cevap 3
+                            <hr>
+                            <h1>Soru 4</h1>
+                            Cevap 4
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Contact End -->
+{% endblock %}
+

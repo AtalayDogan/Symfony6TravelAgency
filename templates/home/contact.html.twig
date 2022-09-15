@@ -1,0 +1,81 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %} Contact | {{ setting.title }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+
+{% block sidebar %} {% include ('home/sidebar.html.twig')%}  {% endblock %}
+
+{% block content %}
+
+    <!-- Header Start -->
+
+<div class="container-fluid page-header">
+
+    <div class="container">
+            <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+                <h3 class="display-4 text-white text-uppercase">Contact</h3>
+
+            </div>
+    </div>
+</div>
+
+
+    <!-- Header End -->
+    <!-- Contact Start -->
+<div class="row">
+        <div class="col-md-6">
+                <div class="container-fluid py-5">
+                    <div class="container py-5">
+                    <div class="text-center mb-3 pb-3">
+                <h1>Contact Form</h1>
+                {% for label, messages in app.flashes %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ label }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                    </div>
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="contact-form bg-white" style="padding: 40px;">
+                                    <div id="success"></div>
+                                    {{ form(form) }}
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+        </div>
+    <div class="col-md-6">
+        <div class="container-fluid py-5">
+            <div class="container py-5">
+                <div class="text-center mb-3 pb-3">
+                    <h1>İletişim Bilgileri</h1>
+
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="contact-form bg-white" style="padding: 40px;">
+                            <div id="success"></div>
+                           {{ setting.contact | raw }}
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Contact End -->
+{% endblock %}
+

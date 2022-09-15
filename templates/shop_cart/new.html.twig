@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ShopCart{% endblock %}
+
+{% block body %}
+    <h1>Create new ShopCart</h1>
+
+    {{ include('shop_cart/_form.html.twig') }}
+
+    <a href="{{ path('app_shop_cart_index') }}">back to list</a>
+{% endblock %}

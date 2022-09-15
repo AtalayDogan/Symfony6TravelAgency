@@ -1,0 +1,53 @@
+{% extends 'adminbase.html.twig' %}
+{% block title %}Contact Messages List{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-12 d-flex no-block align-items-center">
+                    <h4 class="page-title">Contact Page</h4>
+                    <div class="ml-auto text-right">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Message</th>
+
+                    <th scope="col">Show</th>
+                    <th scope="col">Delete</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for rs in messagelist %}
+                <tr>
+                    <td>{{ rs.id }}</th>
+                    <td>{{ rs.name }}</td>
+                    <td>{{ rs.email }}</td>
+                    <td>{{ rs.phone }}</td>
+                    <td>{{ rs.subject }}</td>
+                    <td>{{ rs.message }}</td>
+
+                    <td><a href="{{ path ('app_admin_messages_show', {'id' : rs.id}) }}" class="btn btn-success"> Show</a></td>
+                    <td><a href="{{ path ('app_admin_messages_delete', {'id' : rs.id}) }}" class="btn btn-danger" onclick="return confirm('Emin misin')"> Delete</a></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+{% endblock %}

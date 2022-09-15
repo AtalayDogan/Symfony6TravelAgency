@@ -1,0 +1,43 @@
+
+    <h1>Image index</h1>
+Product Id: {{ pid }}
+
+
+    <table class="table" width="400">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rs in images %}
+            <tr>
+                <td>{{ rs.id }}</td>
+                <td>{{ rs.title }}</td>
+                <td>
+                <img src="{{ asset('uploads/images/'~ rs.image) }}" height="40">
+                </td>
+                <td>
+                    <a href="{{ path('app_admin_image_show', {'id': rs.id}) }}">show</a>
+                    <a href="{{ path('app_admin_image_edit', {'id': rs.id}) }}">edit</a>
+
+                    <form method="post" action="{{ path('app_admin_image_delete', {'id': rs.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ rs.id) }}">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_image_new',{'pid':pid}) }}">Create new</a>
+
